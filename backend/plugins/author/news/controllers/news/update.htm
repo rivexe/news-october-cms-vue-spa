@@ -1,0 +1,39 @@
+<?= Form::open(['class' => 'layout']) ?>
+
+    <div class="layout-row">
+        <?= $this->formRender() ?>
+    </div>
+
+    <div class="form-buttons">
+        <div class="loading-indicator-container">
+            <button
+                type="submit"
+                data-request="onSave"
+                data-hotkey="ctrl+s, cmd+s"
+                data-load-indicator="Сохранение новости..."
+                class="btn btn-primary">
+                Сохранить
+            </button>
+            <button
+                type="button"
+                data-request="onSave"
+                data-request-data="close:1"
+                data-hotkey="ctrl+enter, cmd+enter"
+                data-load-indicator="Сохранение новости..."
+                class="btn btn-default">
+                Сохранить и закрыть
+            </button>
+            <button
+                type="button"
+                class="oc-icon-trash-o btn-icon danger pull-right"
+                data-request="onDelete"
+                data-load-indicator="Удаление новости..."
+                data-request-confirm="Вы действительно хотите удалить эту новость?">
+            </button>
+            <span class="btn-text">
+                или <a href="<?= Backend::url('author/news/news') ?>">Отмена</a>
+            </span>
+        </div>
+    </div>
+
+<?= Form::close() ?>

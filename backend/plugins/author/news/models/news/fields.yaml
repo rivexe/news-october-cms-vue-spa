@@ -1,0 +1,24 @@
+fields:
+    title:
+        label: 'Заголовок'
+        span: left
+        required: true
+        type: text
+    slug:
+        label: 'Slug'
+        span: right
+        type: text
+        placeholder: 'Автоматически из заголовка'
+    content:
+        label: 'Содержание'
+        size: giant
+        type: richeditor
+    published_at:
+        label: 'Дата публикации'
+        span: left
+        type: datepicker
+        mode: datetime
+    is_published:
+        label: 'Опубликовано'
+        span: right
+        type: checkbox

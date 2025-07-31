@@ -1,0 +1,20 @@
+<div class="form-preview">
+    <div class="layout">
+        <div class="layout-row">
+            <?= $this->formRenderPreview() ?>
+        </div>
+    </div>
+</div>
+
+<div class="form-buttons">
+    <div class="loading-indicator-container">
+        <a
+            href="<?= Backend::url('author/news/news/update/'.$formModel->id) ?>"
+            class="btn btn-primary">
+            Редактировать новость
+        </a>
+        <span class="btn-text">
+            или <a href="<?= Backend::url('author/news/news') ?>">Вернуться к списку</a>
+        </span>
+    </div>
+</div>

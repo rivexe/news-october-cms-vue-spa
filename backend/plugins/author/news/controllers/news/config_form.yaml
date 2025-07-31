@@ -1,0 +1,12 @@
+name: 'Новость'
+form: $/author/news/models/news/fields.yaml
+modelClass: Author\News\Models\News
+defaultRedirect: author/news/news
+create:
+    title: 'Создать новость'
+    redirect: 'author/news/news/update/:id'
+    redirectClose: author/news/news
+update:
+    title: 'Редактировать новость'
+    redirect: author/news/news
+    redirectClose: author/news/news

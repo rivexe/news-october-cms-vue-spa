@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: october_cms
+      POSTGRES_USER: october
+      POSTGRES_PASSWORD: october_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  october_cms:
+    build: .
+    ports:
+      - "8080:80"
+    environment:
+      DB_CONNECTION: pgsql
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_DATABASE: october_cms
+      DB_USERNAME: october
+      DB_PASSWORD: october_password
+    depends_on:
+      - postgres
+    volumes:
+      - ./backend/plugins:/var/www/html/plugins
+
+  frontend:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+
+volumes:
+  postgres_data:

@@ -1,0 +1,12 @@
+title: 'Управление новостями'
+modelClass: Author\News\Models\News
+list: $/author/news/models/news/columns.yaml
+recordUrl: 'author/news/news/update/:id'
+noRecordsMessage: 'Новости не найдены'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'Поиск новостей...'
+recordsPerPage: 20
